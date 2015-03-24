@@ -56,8 +56,8 @@ static NSInteger divisor = 6;
         NSInteger multiplied = [self multiplied:x];
         NSLog(@"Multiplied %ld by %ld to be %ld", x, multiple, multiplied);
         
-        NSInteger divided = [self divided:multiplied];
-        NSLog(@"Divided %ld by %ld to be %ld", multiplied, divisor, divided);
+        double divided = [self divided:multiplied];
+        NSLog(@"Divided %ld by %ld to be %f", multiplied, divisor, (float) divided);
     }
 }
 
@@ -67,10 +67,12 @@ static NSInteger divisor = 6;
     return input *= multiple;
 }
 
-- (NSInteger) divided: (NSInteger) input {
+- (double) divided: (NSInteger) input {
     // Divide a given number by a global value
     
-    return input /= divisor;
+    double result = (float) input / divisor;
+    
+    return result;
 }
 
 @end
