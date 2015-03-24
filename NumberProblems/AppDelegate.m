@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 static NSInteger multiple = 8;
+static NSInteger divisor = 6;
 
 @interface AppDelegate ()
 
@@ -50,9 +51,13 @@ static NSInteger multiple = 8;
     // Decrement a given integer until it is zero
     
     for (NSInteger x = count; x > 0; --x) {
-        NSInteger result = [self multiplied:x];
         NSLog(@"Iterate [%ld]", (long) x);
-        NSLog(@"Multiplied %ld by %ld to be %ld", x, multiple, result);
+
+        NSInteger multiplied = [self multiplied:x];
+        NSLog(@"Multiplied %ld by %ld to be %ld", x, multiple, multiplied);
+        
+        NSInteger divided = [self divided:multiplied];
+        NSLog(@"Divided %ld by %ld to be %ld", multiplied, divisor, divided);
     }
 }
 
@@ -60,6 +65,12 @@ static NSInteger multiple = 8;
     // Multiple a given number by a global value
     
     return input *= multiple;
+}
+
+- (NSInteger) divided: (NSInteger) input {
+    // Divide a given number by a global value
+    
+    return input /= divisor;
 }
 
 @end
