@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+static NSInteger multiple = 8;
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [self iterateCount:4];
+    
     return YES;
 }
 
@@ -40,6 +44,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void) iterateCount: (NSInteger) count {
+    // Decrement a given integer until it is zero
+    
+    for (NSInteger x = count; x > 0; --x) {
+        NSLog(@"Iterate [%ld]", (long) x);
+    }
 }
 
 @end
