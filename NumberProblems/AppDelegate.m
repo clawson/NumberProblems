@@ -50,8 +50,16 @@ static NSInteger multiple = 8;
     // Decrement a given integer until it is zero
     
     for (NSInteger x = count; x > 0; --x) {
+        NSInteger result = [self multiplied:x];
         NSLog(@"Iterate [%ld]", (long) x);
+        NSLog(@"Multiplied %ld by %ld to be %ld", x, multiple, result);
     }
+}
+
+- (NSInteger) multiplied: (NSInteger) input {
+    // Multiple a given number by a global value
+    
+    return input *= multiple;
 }
 
 @end
